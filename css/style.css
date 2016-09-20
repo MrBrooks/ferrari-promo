@@ -4157,13 +4157,15 @@ section
 
     overflow: hidden;
 
-    min-height: 560px;
+    width: 33%;
+    min-height: 700px;
 
     cursor: pointer;
-    -webkit-transition: all 500ms cubic-bezier(.4, 0, .2, 1);
-            transition: all 500ms cubic-bezier(.4, 0, .2, 1);
+    -webkit-transition: all 1000ms cubic-bezier(.4, 0, .2, 1);
+            transition: all 1000ms cubic-bezier(.4, 0, .2, 1);
 
     background-image: url(../img/images/2.jpg);
+    background-size: auto 100%;
 
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
@@ -4180,10 +4182,7 @@ section
 }
 .dynamin-grid .item:hover
 {
-    -webkit-box-flex: 2;
-    -webkit-flex-grow: 2;
-    -ms-flex-positive: 2;
-            flex-grow: 2;
+    width: 50%;
 }
 .dynamin-grid .item:hover .info
 {
@@ -4195,15 +4194,11 @@ section
 }
 .dynamin-grid .item.active
 {
+    width: 100%;
+
     cursor: initial;
 
-    background-image: url(../img/images/open3.jpg);
     background-size: contain;
-
-    -webkit-box-flex: 1000;
-    -webkit-flex-grow: 1000;
-    -ms-flex-positive: 1000;
-            flex-grow: 1000;
 }
 .dynamin-grid .item.active .info
 {
@@ -4225,22 +4220,11 @@ section
 
     opacity: 1;
 }
-.dynamin-grid .item.active:first-child
+.dynamin-grid .item.small
 {
-    background-image: url(../img/images/open.jpg);
-}
-.dynamin-grid .item.active:last-child
-{
-    background-image: url(../img/images/open2.jpg);
-}
-.dynamin-grid .item.small .info .descr,
-.dynamin-grid .item.small .info .hr
-{
-    display: none;
-}
-.dynamin-grid .item.small .info h2
-{
-    writing-mode: vertical-rl;
+    width: 0;
+
+    background-size: cover;
 }
 .dynamin-grid .item.small .circle-btn
 {
@@ -4363,6 +4347,27 @@ section
             transition-delay: 300ms;
 
     opacity: 1;
+}
+.dynamin-grid .text-info .go-back
+{
+    z-index: 1001;
+    top: -30px;
+    right: 0;
+    left: initial;
+
+    cursor: pointer;
+
+    opacity: 1;
+}
+.dynamin-grid .text-info .go-back span
+{
+    padding-right: 10px;
+}
+.dynamin-grid .text-info .go-back div
+{
+    display: inline-block;
+
+    vertical-align: top;
 }
 .dynamin-grid .text-info > div
 {
@@ -5098,6 +5103,16 @@ input.phone:focus
     top: 0;
 
     opacity: 1;
+}
+.transition-delay10
+{
+    -webkit-transition-delay: 1000ms;
+            transition-delay: 1000ms;
+}
+.transition-delay15
+{
+    -webkit-transition-delay: 1500ms;
+            transition-delay: 1500ms;
 }
 @-webkit-keyframes opacity
 {
