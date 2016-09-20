@@ -4053,9 +4053,6 @@ section
 {
     width: 100%;
     height: 100vh;
-
-    background-color: rgba(0, 0, 0, .7);
-    background-image: url(http://placehold.it/1920x1080/444/700);
 }
 .start-banner h1
 {
@@ -4166,7 +4163,7 @@ section
     -webkit-transition: all 500ms cubic-bezier(.4, 0, .2, 1);
             transition: all 500ms cubic-bezier(.4, 0, .2, 1);
 
-    background-image: url(http://placehold.it/350x560);
+    background-image: url(../img/images/2.jpg);
 
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
@@ -4175,11 +4172,11 @@ section
 }
 .dynamin-grid .item:first-child
 {
-    background-image: url(http://placehold.it/350x560/700/fff);
+    background-image: url(../img/images/1.jpg);
 }
 .dynamin-grid .item:last-child
 {
-    background-image: url(http://placehold.it/350x560/aa5700/fff);
+    background-image: url(../img/images/3.jpg);
 }
 .dynamin-grid .item:hover
 {
@@ -4200,6 +4197,7 @@ section
 {
     cursor: initial;
 
+    background-image: url(../img/images/open3.jpg);
     background-size: contain;
 
     -webkit-box-flex: 1000;
@@ -4226,6 +4224,14 @@ section
     margin-top: 0;
 
     opacity: 1;
+}
+.dynamin-grid .item.active:first-child
+{
+    background-image: url(../img/images/open.jpg);
+}
+.dynamin-grid .item.active:last-child
+{
+    background-image: url(../img/images/open2.jpg);
 }
 .dynamin-grid .item.small .info .descr,
 .dynamin-grid .item.small .info .hr
@@ -4380,7 +4386,7 @@ section
     margin-bottom: 20px;
 
     border-radius: 50%;
-    background-image: url(http://placehold.it/200);
+    background-image: url(../img/images/shirt.jpg);
 }
 .dynamin-grid .text-info .product-more
 {
@@ -4535,6 +4541,15 @@ section
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
             justify-content: space-between;
+}
+.slider-preview .img
+{
+    width: 60px;
+    height: 60px;
+}
+.slider-preview img
+{
+    width: 100%;
 }
 .hr
 {
@@ -4795,6 +4810,22 @@ input.phone:focus
 {
     outline: none;
     box-shadow: none;
+}
+.background-video video
+{
+    position: absolute;
+    z-index: -100;
+    top: 50%;
+    left: 50%;
+
+    width: auto;
+    min-width: 100%;
+    height: auto;
+    min-height: 100%;
+
+    -webkit-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
 }
 .anim-border
 {
