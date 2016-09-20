@@ -10,8 +10,15 @@ $(document).ready(function() {
  /*    //= ./common/google-analytics.js */
  function DynamicGrid(){
     var items = $('.dynamin-grid .item');
-    items.on('click',function(){
+    var close_btn = $('.dynamin-grid .go-back');
+    items.on('click',function(e){
+      // console.log(e);
       $(this).addClass('active').removeClass('small').siblings().removeClass('active').addClass('small');
+    });
+    close_btn.on('click',function(e){
+      // console.log(e);
+      items.removeClass('small active');
+      e.stopPropagation();
     });
   }
 
