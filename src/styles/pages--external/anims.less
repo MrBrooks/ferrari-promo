@@ -5,8 +5,8 @@
 @start-deley: 500ms;
 
 @circle-radius: 2px;
-@circle-delay: 300ms;
-@circle-dur: 300ms;
+@circle-delay: 500ms;
+@circle-dur: 500ms;
 
 .anim-border{
   position: absolute;
@@ -30,53 +30,61 @@
     animation: width-anim @dur linear @start-deley 1;
     animation-fill-mode: forwards;
   }
-  &:nth-child(2){
+  &:nth-child(2),&:nth-child(3){
     left: @dist;
     height: 100%;
     width: @width;
-    transition-delay: @start-deley + @dur;
-    margin: @dist 0;
+    // transition-delay: @start-deley;// + @dur;
+    margin: auto 0;
     // height: ~"calc(100% - 2*@{dist})";
     height: 0;
-    animation: height-anim @dur linear @dur+@start-deley 1;
+    top: 0;
+    bottom: 0;
+    animation: height-anim @dur linear @start-deley 1;
     animation-fill-mode: forwards;
   }
   &:nth-child(3){
     right: @dist;
-    height: 100%;
-    width: @width;
-    transition-delay: @start-deley + @dur;
-    margin: @dist 0;
-    height: ~"calc(100% - 2*@{dist})";
-    height: 0;
-    animation: height-anim @dur linear @dur+@start-deley 1;
-    animation-fill-mode: forwards;
+    left: initial;
+    // height: 100%;
+    // width: @width;
+    // // transition-delay: @start-deley + @dur;
+    // margin: auto 0;
+    // // height: ~"calc(100% - 2*@{dist})";
+    // height: 0;
+    // animation: height-anim @dur linear @start-deley 1;
+    // animation-fill-mode: forwards;
   }
   &:nth-child(4){
     width: 40%;
     bottom: @dist;
     transition-delay: @start-deley + 2*@dur;
-    margin: 0 @dist;
-    width: ~"calc(50% - @{dist})";
+    // margin: 0 @dist;
+    // width: ~"calc(50% - @{dist})";
         // width: 0%;
-    float: left;
+    // float: left;
     width: 0;
-    animation: width-anim-half @dur linear 2*@dur+@start-deley 1;
+    // left: @dist;
+    right: ~"calc(60% - @{dist})";
+    animation: width-anim-half @dur linear @start-deley 1;
     animation-fill-mode: forwards;
+    // transform: rotate(180deg);
+    // transform-origin: 50% 50%;
   }
   &:nth-child(5){
-    width: 40%;
+    // width: 40%;
     // padding-left: 50%;
     bottom: @dist;
-    transition-delay: @start-deley + 2*@dur;
+    // transition-delay: @start-deley + 2*@dur;
     // margin: 0 @dist;
-    margin-left:~"calc(50%)";
-    width: ~"calc(50% - @{dist})";
+    // margin-left:~"calc(50%)";
+    // width: ~"calc(50% - @{dist})";
         // width: 0%;
     // float: right;
-    right: @dist;
+    // right: @dist;
+    left: ~"calc(60% - @{dist})";
     width: 0;
-    animation: width-anim-half @dur linear 2*@dur+@start-deley 1;
+    animation: width-anim-half @dur linear @start-deley 1;
     animation-fill-mode: forwards;
   }
 }
@@ -89,7 +97,7 @@
 }
 .more{
   opacity: 0;
-  .anim-once(opacity, 500ms, 3*@dur+@start-deley + 9*@circle-delay);
+  .anim-once(opacity, 500ms,  5.5*@circle-delay);
 }
 .anim-arrow{
   position: absolute;
@@ -108,7 +116,7 @@
     // animation-name: opacity;
     // animation-iteration-count: 1;
     // animation-delay: 3*@dur+@start-deley + 8*@circle-delay;
-    .anim-once(opacity, @circle-dur, 3*@dur+@start-deley + 8*@circle-delay);
+    .anim-once(opacity, @circle-dur, 5*@circle-delay);
   }
   .circle{
     width: 2*@circle-radius;
@@ -123,28 +131,28 @@
     margin-left: -2px;
     // animation-delay: 
     &:nth-child(1){
-      animation-delay: 3*@dur+@start-deley + 0;
+      animation-delay: 1*@circle-delay;
     }
     &:nth-child(2){
-      animation-delay: 3*@dur+@start-deley + 1*@circle-delay;
+      animation-delay: 1.5*@circle-delay;
     }
     &:nth-child(3){
-      animation-delay: 3*@dur+@start-deley + 2*@circle-delay;
+      animation-delay: 2*@circle-delay;
     }
     &:nth-child(4){
-      animation-delay: 3*@dur+@start-deley + 3*@circle-delay;
+      animation-delay: 2.5*@circle-delay;
     }
     &:nth-child(5){
-      animation-delay: 3*@dur+@start-deley + 4*@circle-delay;
+      animation-delay: 3*@circle-delay;
     }
     &:nth-child(6){
-      animation-delay: 3*@dur+@start-deley + 5*@circle-delay;
+      animation-delay: 3.5*@circle-delay;
     }
     &:nth-child(7){
-      animation-delay: 3*@dur+@start-deley + 6*@circle-delay;
+      animation-delay: 4*@circle-delay;
     }
     &:nth-child(8){
-      animation-delay: 3*@dur+@start-deley + 7*@circle-delay;
+      animation-delay: 4.5*@circle-delay;
     }
   }
 }
@@ -177,7 +185,17 @@
     transition-delay: 3*@lupe-delay;
   }
 }
-
+.slide-from-down{
+  opacity: 0;
+  position: relative;
+  top: 200px;
+  transition: all 1s;
+  transition-delay: 500ms;
+  &.active{
+    opacity: 1;
+    top: 0;
+  }
+}
 
 @keyframes opacity {
   from { opacity: 0 }

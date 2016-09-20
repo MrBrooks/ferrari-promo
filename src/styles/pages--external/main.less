@@ -43,6 +43,7 @@ section{
   width: 100%;
   height: 100vh;
   background-image: url(http://placehold.it/1920x1080/444/700);
+  background-color: rgba(0,0,0,0.7);
   h1{
     color: #fff;
   }
@@ -317,6 +318,12 @@ section{
     opacity: 1;
     z-index: 2000;
   }
+  .btn-close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+  }
   .content{
     width: 790px;
     margin: auto;
@@ -329,6 +336,7 @@ section{
     height: 100%;
     padding: 40px;
     height: 445px;
+    position: relative;
     .title, .price{
       display: inline-block;
       vertical-align: top;
@@ -354,6 +362,9 @@ section{
       .btn{
         color: @black;
         margin-bottom: 20px;
+        &:hover{
+          color: #fff;
+        }
       }
     }
   }
@@ -405,12 +416,39 @@ section{
   line-height: 1;
   padding: 16px 0;
   transition: all 300ms;
-  &:hover{
-    background-color: @red;
-  }
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  transition: all 300ms;
+  // &:hover{
+  //   background-color: @red;
+  // }
   &--submit{
     width: 230px;
     color: @black;
+  }
+  /* Button 1b */
+  &.fullfill:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background: @red;
+    transition: all 300ms;
+    z-index: -1;
+  }
+
+  &.fullfill:hover,
+  &.fullfill:active {
+    color: #fff;
+  }
+
+  &.fullfill:hover:before,
+  &.fullfill:active:before {
+    height: 100%;
   }
 }
 .circle-btn{
