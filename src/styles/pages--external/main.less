@@ -42,8 +42,8 @@ section{
   &:extend(.full-bg);
   width: 100%;
   height: 100vh;
-  background-image: url(http://placehold.it/1920x1080/444/700);
-  background-color: rgba(0,0,0,0.7);
+  // background-image: url(http://placehold.it/1920x1080/444/700);
+  // background-color: rgba(0,0,0,0.7);
   h1{
     color: #fff;
   }
@@ -117,7 +117,7 @@ section{
   .item{
     // width: 100%/3;
     &:extend(.full-bg);
-    background-image: url(http://placehold.it/350x560);
+    background-image: url(../img/images/2.jpg);
     // border: 1px solid black;
     min-height: 560px;
     // width: 100%/3;
@@ -128,12 +128,13 @@ section{
     position: relative;
     line-height: 1.2;
     overflow: hidden;
+    // background-size: contain;
     // transform: skewX(15deg);
     &:first-child{
-      background-image: url(http://placehold.it/350x560/700/fff);
+      background-image: url(../img/images/1.jpg);
     }
     &:last-child{
-      background-image: url(http://placehold.it/350x560/aa5700/fff);
+      background-image: url(../img/images/3.jpg);
     }
     &:hover{
       // width: 50%;
@@ -149,6 +150,7 @@ section{
       flex-grow: 1000;
       background-size: contain;
       cursor: initial;
+      background-image: url(../img/images/open3.jpg);
       .info{
         // display: none;
         opacity: 0;
@@ -163,6 +165,12 @@ section{
       .lupe{
         opacity: 1;
         margin-top: 0;
+      }
+      &:first-child{
+        background-image: url(../img/images/open.jpg);
+      }
+      &:last-child{
+        background-image: url(../img/images/open2.jpg);
       }
     }
     &.small{
@@ -282,7 +290,7 @@ section{
       height: 100px;
       margin: auto;
       &:extend(.full-bg);
-      background-image: url(http://placehold.it/200);
+      background-image: url(../img/images/shirt.jpg);
       border-radius: 50%;
       margin-bottom: 20px;
     }
@@ -398,6 +406,13 @@ section{
   //     margin-right: 0;
   //   }
   // }
+  .img{
+    width: 60px;
+    height: 60px;
+  }
+  img{
+    width: 100%;
+  }
 }
 .hr{
   height: 1px;
@@ -596,4 +611,15 @@ input.phone{
     outline: none;
   }
 }
-
+.background-video video{
+  // position: fixed;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+}
