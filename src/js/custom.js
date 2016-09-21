@@ -2,6 +2,10 @@
 /* Custom JavaScript files supervisor */
 /**************************************/
 
+$(window).load(function(){
+  $('#preloader').fadeOut(500);
+});
+
 $(document).ready(function() {
 
     /* Custom */
@@ -69,6 +73,11 @@ $(document).ready(function() {
     dotsContainer: ".slider-preview",
     items: 1
   });
+
+  var vid = document.getElementById("ferrari-video");
+  vid.onended = function(){
+    $(this).css('opacity', 0);
+  };
 
 
   var window_updater = new WindowUpdater([
