@@ -4044,8 +4044,7 @@ section
 .full-bg,
 .start-banner,
 .dynamin-grid .item,
-.dynamin-grid .text-info .img,
-.background-video
+.dynamin-grid .text-info .img
 {
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -4105,18 +4104,30 @@ section
 .start-banner .slide-from-down
 {
     position: absolute;
-    top: 33%;
+    top: 40%;
     right: 0;
     left: 0;
 
     margin: auto;
     margin-top: 40px;
+
+    -webkit-transition-delay: 500ms;
+            transition-delay: 500ms;
 }
 .start-banner .slide-from-down.active
 {
-    top: 33%;
+    top: 40%;
 
     margin-top: 0;
+}
+.start-banner .slide-from-down.prev
+{
+    margin-top: 0;
+
+    -webkit-transition-delay: 0ms;
+            transition-delay: 0ms;
+
+    opacity: 0;
 }
 .vam
 {
@@ -4329,7 +4340,12 @@ section
     top: 0;
     left: 0;
 
-    width: 350px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    width: 40%;
     margin-top: 100px;
     padding: 30px;
 
@@ -4338,6 +4354,11 @@ section
     text-align: center;
 
     opacity: 0;
+
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+            justify-content: center;
 }
 .dynamin-grid .book .title
 {
@@ -4350,6 +4371,7 @@ section
 }
 .dynamin-grid .book > div
 {
+    width: 350px;
     padding: 40px 30px;
 
     background-color: #ededed;
@@ -4396,13 +4418,23 @@ section
     top: 0;
     right: 0;
 
-    width: 350px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    width: 40%;
     margin-top: 100px;
 
     -webkit-transition: all 500ms;
             transition: all 500ms;
 
     opacity: 0;
+
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+            justify-content: center;
 }
 .dynamin-grid .text-info .active
 {
@@ -4432,6 +4464,12 @@ section
     vertical-align: top;
 }
 .dynamin-grid .text-info > div
+{
+    position: relative;
+
+    width: 350px;
+}
+.dynamin-grid .text-info > div > div
 {
     position: absolute;
     z-index: -1;
@@ -4878,19 +4916,10 @@ input.phone:focus
     outline: none;
     box-shadow: none;
 }
-.background-video
-{
-    z-index: -1;
-
-    width: 100%;
-    height: 100vh;
-
-    background-image: url(../img/images/poster.jpg);
-}
 .background-video video
 {
     position: absolute;
-    z-index: -100;
+    z-index: -1;
     top: 50%;
     left: 50%;
 

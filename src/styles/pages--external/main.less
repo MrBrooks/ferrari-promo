@@ -79,14 +79,21 @@ section{
   }
   .slide-from-down{
     position: absolute;
-    top: 33%;
+    top: 40%;
     left: 0;
     right: 0;
     margin: auto;
     margin-top: 40px;
+    transition-delay: 500ms;
     &.active{
-      top: 33%;
+      top: 40%;
       margin-top: 0;
+      // transition-delay: 0;
+    }
+    &.prev{
+      margin-top: 0;
+      opacity: 0;
+      transition-delay: 0ms;
     }
   }
 }
@@ -261,7 +268,7 @@ section{
   .book{
     // display: none;
     position: absolute;
-    width: 350px;
+    width: 40%;
     top: 0;
     left: 0;
     padding: 30px;
@@ -271,6 +278,8 @@ section{
     margin-top: 100px;
     z-index: 1000;
     opacity: 0;
+    display: flex;
+    justify-content: center;
     .title{
       font-size: 24px;
     }
@@ -281,6 +290,7 @@ section{
     &>div{
       background-color: #ededed;
       padding: 40px 30px;
+      width: 350px;
     }
     .descr{
       margin-bottom: 25px;
@@ -310,7 +320,7 @@ section{
   .text-info{
     // display: none;
     position: absolute;
-    width: 350px;
+    width: 40%;
     top: 0;
     right: 0;
     // padding: 60px;
@@ -319,6 +329,8 @@ section{
     // transition-delay: 500ms;
     margin-top: 100px;
     opacity: 0;
+    display: flex;
+    justify-content: center;
     
     .active{
       opacity: 1;
@@ -345,6 +357,10 @@ section{
       }
     }
     &>div{
+      width: 350px;
+      position: relative;
+    }
+    &>div>div{
       opacity: 0;
       transition: all 300ms;
       position: absolute;
@@ -680,11 +696,11 @@ input.phone{
   }
 }
 .background-video {
-  &:extend(.full-bg);
-  background-image: url(../img/images/poster.jpg);
-  width: 100%;
-  height: 100vh;
-  z-index: -1;
+  // &:extend(.full-bg);
+  // background-image: url(../img/images/poster.jpg);
+  // width: 100%;
+  // height: 100vh;
+  // z-index: -1;
   video{
     // position: fixed;
     position: absolute;
@@ -694,7 +710,7 @@ input.phone{
     min-height: 100%;
     width: auto;
     height: auto;
-    z-index: -100;
+    z-index: -1;
     transform: translateX(-50%) translateY(-50%);
     // background-image: url(../img/images/poster.jpg);
   }
