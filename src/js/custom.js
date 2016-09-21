@@ -57,8 +57,11 @@ $(document).ready(function() {
  
   DynamicGrid();
   ProductView();
+
+  var auto_play = new AutoPlay();
+  auto_play.start();
   var scroll_anim = new AnimOnScroll({
-    selector: '.slide-from-down',
+    selector: '.slide-from-down:not(.no-scroll)',
     visible: 'active'
   });
 
@@ -208,6 +211,41 @@ function AnimOnScroll(options){
   if(if_mobile){
     select.addClass(opt.visible);
   }
+}
+
+function AutoPlay(options){
+  var def = {
+    selector: ".auto-play",
+    class: 'active',
+    pause: 7000
+  };
+  var self = this;
+  var opt = $.extend(def, options);
+
+  var items, timer, count, iter;
+
+  function init(){
+    items = $(opt.selector);
+    count = items.length;
+    iter = 0;
+    if(count > 0){
+      $(items.get(iter++)).addClass(opt.class);
+    }
+  }
+
+  self.start = function (){
+    if (count > 0){
+      timer = setInterval(function(){
+        $(items.get(iter++ % count)).addClass(opt.class).siblings().removeClass(opt.class);
+      },opt.pause);
+    }
+  };
+
+  self.stop = function (){
+    clearInterval(timer);
+  };
+
+  init();
 }
 
 

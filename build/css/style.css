@@ -8,6 +8,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Infant:300|Open+Sans:300,400&subset=cyrillic,cyrillic-ext');
 html
 {
     font-family: sans-serif;
@@ -4010,7 +4011,7 @@ h5,
 h6,
 .dynamin-grid .title
 {
-    font-family: 'Lora', serif;
+    font-family: 'Cormorant Infant', serif;
     font-weight: 400;
     font-style: normal;
 
@@ -4075,6 +4076,22 @@ section
     text-align: center;
 
     color: #fff;
+}
+.start-banner .slide-from-down
+{
+    position: absolute;
+    top: 33%;
+    right: 0;
+    left: 0;
+
+    margin: auto;
+    margin-top: 80px;
+}
+.start-banner .slide-from-down.active
+{
+    top: 33%;
+
+    margin-top: 0;
 }
 .vam
 {
@@ -4198,7 +4215,7 @@ section
 
     cursor: initial;
 
-    background-size: contain;
+    background-image: url(../img/images/open3.jpg);
 }
 .dynamin-grid .item.active .info
 {
@@ -4208,11 +4225,21 @@ section
 }
 .dynamin-grid .item.active .book
 {
-    display: block;
+    margin-top: 0;
+
+    -webkit-transition-delay: 500ms;
+            transition-delay: 500ms;
+
+    opacity: 1;
 }
 .dynamin-grid .item.active .text-info
 {
-    display: block;
+    margin-top: 0;
+
+    -webkit-transition-delay: 1s;
+            transition-delay: 1s;
+
+    opacity: 1;
 }
 .dynamin-grid .item.active .lupe
 {
@@ -4220,11 +4247,17 @@ section
 
     opacity: 1;
 }
+.dynamin-grid .item.active:first-child
+{
+    background-image: url(../img/images/open.jpg);
+}
+.dynamin-grid .item.active:last-child
+{
+    background-image: url(../img/images/open2.jpg);
+}
 .dynamin-grid .item.small
 {
     width: 0;
-
-    background-size: cover;
 }
 .dynamin-grid .item.small .circle-btn
 {
@@ -4242,7 +4275,7 @@ section
 .dynamin-grid .info
 {
     width: 100%;
-    height: 100%;
+    height: 700px;
     padding-top: 175px;
 
     -webkit-transition: opacity 500ms;
@@ -4271,12 +4304,15 @@ section
     top: 0;
     left: 0;
 
-    display: none;
-
-    width: 33%;
+    width: 350px;
+    margin-top: 100px;
     padding: 30px;
 
+    -webkit-transition: all 500ms;
+            transition: all 500ms;
     text-align: center;
+
+    opacity: 0;
 }
 .dynamin-grid .book .title
 {
@@ -4335,16 +4371,17 @@ section
     top: 0;
     right: 0;
 
-    display: none;
+    width: 350px;
+    margin-top: 100px;
 
-    width: 33%;
+    -webkit-transition: all 500ms;
+            transition: all 500ms;
+
+    opacity: 0;
 }
 .dynamin-grid .text-info .active
 {
     z-index: 1000;
-
-    -webkit-transition-delay: 300ms;
-            transition-delay: 300ms;
 
     opacity: 1;
 }
@@ -4422,7 +4459,7 @@ section
     left: 0;
 
     width: 100%;
-    height: 100%;
+    height: 700px;
     padding: 60px;
 
     -webkit-transition: all 300ms;
@@ -5089,7 +5126,7 @@ input.phone:focus
 .slide-from-down
 {
     position: relative;
-    top: 200px;
+    top: 0;
 
     -webkit-transition: all 1s;
             transition: all 1s;
@@ -5100,7 +5137,7 @@ input.phone:focus
 }
 .slide-from-down.active
 {
-    top: 0;
+    top: -100px;
 
     opacity: 1;
 }
@@ -5113,6 +5150,70 @@ input.phone:focus
 {
     -webkit-transition-delay: 1500ms;
             transition-delay: 1500ms;
+}
+.preloader
+{
+    position: relative;
+
+    display: inline-block;
+
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+
+    -webkit-animation: rotate 1s cubic-bezier(.4, 0, .2, 1) infinite;
+            animation: rotate 1s cubic-bezier(.4, 0, .2, 1) infinite;
+
+    border: 15px solid red;
+    border-radius: 50%;
+}
+.preloader .bar
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100px;
+    height: 20px;
+    margin: auto;
+    margin-left: -15px;
+
+    background-color: #fff;
+}
+.preloader .bar:first-child
+{
+    width: 20px;
+    height: 100px;
+    margin-top: -15px;
+    margin-left: auto;
+}
+@-webkit-keyframes rotate
+{
+    from
+    {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    to
+    {
+        -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+    }
+}
+@keyframes rotate
+{
+    from
+    {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    to
+    {
+        -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+    }
 }
 @-webkit-keyframes opacity
 {

@@ -1,4 +1,4 @@
-// @import url('https://fonts.googleapis.com/css?family=Lora|Open+Sans:300,400&subset=cyrillic,cyrillic-ext');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Infant:300|Open+Sans:300,400&subset=cyrillic,cyrillic-ext');
 
 body,html{
   padding: 0;
@@ -9,7 +9,7 @@ body,html{
   color: @black;
 }
 h1,h2,h3,h4,h5,h6{
-  font-family: 'Lora', serif;
+  font-family: 'Cormorant Infant', serif;
   font-weight: 400;
   font-style: normal;
   // font-family: 'Playfair Display SC', serif;
@@ -58,6 +58,18 @@ section{
     width: 100%;
     text-align: center;
     color: #fff;
+  }
+  .slide-from-down{
+    position: absolute;
+    top: 33%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 80px;
+    &.active{
+      top: 33%;
+      margin-top: 0;
+    }
   }
 }
 .vam{
@@ -119,7 +131,7 @@ section{
     &:extend(.full-bg);
     background-image: url(../img/images/2.jpg);
     // border: 1px solid black;
-    min-height: 700px;
+    min-height: @dynamic-grig-height;
     // width: 100%/3;
     transition: all 1000ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -151,34 +163,39 @@ section{
     }
     &.active{
       // flex-grow: 2;
-      background-size: contain;
+      // background-size: contain;
       cursor: initial;
       width: 100%;
-      // background-image: url(../img/images/open3.jpg);
+      background-image: url(../img/images/open3.jpg);
       .info{
         // display: none;
         opacity: 0;
         z-index: -1;
       }
       .book{
-        display: block;
+        opacity: 1;
+        margin-top: 0;
+        transition-delay: 500ms;
       }
       .text-info{
-        display: block;
+        // display: block;
+        opacity: 1;
+        margin-top: 0;
+        transition-delay: 1s;
       }
       .lupe{
         opacity: 1;
         margin-top: 0;
       }
       &:first-child{
-        // background-image: url(../img/images/open.jpg);
+        background-image: url(../img/images/open.jpg);
       }
       &:last-child{
-        // background-image: url(../img/images/open2.jpg);
+        background-image: url(../img/images/open2.jpg);
       }
     }
     &.small{
-      background-size: cover;
+      // background-size: cover;
       width: 0;
       // .info{
       //   .descr, .hr{
@@ -205,7 +222,8 @@ section{
   }
   .info{
     width: 100%;
-    height: 100%;
+    height: @dynamic-grig-height;
+    
     background-color: rgba(0,0,0,0.5);
     transition: opacity 500ms;
     transition: z-index 1ms 500ms;
@@ -222,14 +240,18 @@ section{
     }
   }
   .book{
-    display: none;
+    // display: none;
     position: absolute;
-    width: 33%;
+    width: 350px;
     top: 0;
     left: 0;
     padding: 30px;
     text-align: center;
+    transition: all 500ms;
+    // transition-delay: 500ms;
+    margin-top: 100px;
     z-index: 1000;
+    opacity: 0;
     .title{
       font-size: 24px;
     }
@@ -267,19 +289,23 @@ section{
     }
   }
   .text-info{
-    display: none;
+    // display: none;
     position: absolute;
-    width: 33%;
+    width: 350px;
     top: 0;
     right: 0;
     // padding: 60px;
     z-index: 1000;
+    transition: all 500ms;
+    // transition-delay: 500ms;
+    margin-top: 100px;
+    opacity: 0;
     
     .active{
       opacity: 1;
       // margin-bottom: 0;
       // top: 0;
-      transition-delay: 300ms;
+      // transition-delay: 300ms;
       z-index: 1000;
     }
     .go-back{
@@ -339,7 +365,7 @@ section{
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: @dynamic-grig-height;
   padding: 60px;
   background-color: rgba(0,0,0,0.8);
   opacity: 0;
