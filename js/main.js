@@ -14722,10 +14722,10 @@ $(document).ready(function() {
     items: 1
   });
 
-  var vid = document.getElementById("ferrari-video");
-  vid.onended = function(){
-    $(this).css('opacity', 0);
-  };
+  // var vid = document.getElementById("ferrari-video");
+  // vid.onended = function(){
+  //   $(this).css('opacity', 0);
+  // };
 
 
   var window_updater = new WindowUpdater([
@@ -14874,6 +14874,7 @@ function AutoPlay(options){
   var def = {
     selector: ".auto-play",
     class: 'active',
+    prev: 'prev',
     pause: 7000
   };
   var self = this;
@@ -14886,14 +14887,17 @@ function AutoPlay(options){
     count = items.length;
     iter = 0;
     if(count > 0){
-      $(items.get(iter++)).addClass(opt.class);
+      $(items.get(iter)).addClass(opt.class);
     }
   }
 
   self.start = function (){
     if (count > 0){
       timer = setInterval(function(){
-        $(items.get(iter++ % count)).addClass(opt.class).siblings().removeClass(opt.class);
+        $(items).removeClass(opt.prev);
+        $(items.get(iter % count)).addClass(opt.prev);
+        $(items.get(++iter % count)).addClass(opt.class).siblings().removeClass(opt.class);
+
       },opt.pause);
     }
   };
