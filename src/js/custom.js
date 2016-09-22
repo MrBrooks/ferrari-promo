@@ -37,7 +37,7 @@ $(document).ready(function() {
       var close_btns = popups.find('.btn-close');
       var mores = $(this).find(".product-more");
       lupes.on('click',function(){
-          $(this).toggleClass('active').siblings().removeClass('active');
+          $(this).css('transition-delay','0ms').addClass('active').siblings().removeClass('active');
           // expand(parseInt($(this).attr('data-index')));
           $(tabs.get(parseInt($(this).attr('data-index'))-1)).addClass('active').siblings().removeClass('active');
         });
@@ -69,6 +69,10 @@ $(document).ready(function() {
     visible: 'active'
   });
 
+  $("input[name='phone']").mask('+7 (000) 000-00-00');
+
+  var video_control = new VideoControl();
+
   var sliders = $('.slider').owlCarousel({
     dotsContainer: ".slider-preview",
     items: 1
@@ -85,6 +89,7 @@ $(document).ready(function() {
       event: "scroll",
       actions: [
         scroll_anim.updateView,
+        video_control.update,
         // video_play.scrollControl,
         // econtenta_pixel.checkScrollConditions
       ]
@@ -246,16 +251,38 @@ function AutoPlay(options){
   self.start = function (){
     if (count > 0){
       timer = setInterval(function(){
-        $(items).removeClass(opt.prev);
-        $(items.get(iter % count)).addClass(opt.prev);
-        $(items.get(++iter % count)).addClass(opt.class).siblings().removeClass(opt.class);
-
+        if(iter < count-1){
+          $(items).removeClass(opt.prev);
+          $(items.get(iter % count)).addClass(opt.prev);
+          $(items.get(++iter % count)).addClass(opt.class).siblings().removeClass(opt.class);
+        } else self.stop();
       },opt.pause);
     }
   };
 
   self.stop = function (){
     clearInterval(timer);
+  };
+
+  init();
+}
+
+function VideoControl(){
+  var vid;
+
+  function init(){
+    vid = document.getElementById("ferrari-video");
+    vid.onended = function(){
+      $("#anim-arrow").addClass('jumping');
+    };
+  }
+
+  this.update = function (){
+    if($(window).scrollTop() > 20){
+      vid.pause();
+    } else{
+      vid.play();
+    }
   };
 
   init();

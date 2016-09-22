@@ -21,11 +21,11 @@
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
-    <div class="arrow svg-sprite--arrow-white"></div>
+    <div id="anim-arrow" class="arrow svg-sprite--arrow-white"></div>
   </div>
   <div class="content vam">
     <div>
-      <h1 class="slide-from-down no-scroll auto-play">На путь легенды <br> может стать каждый</h1>
+      <h1 class="slide-from-down no-scroll auto-play">На путь легенды <br> может встать каждый</h1>
       <h1 class="slide-from-down no-scroll auto-play">Но не каждый сможет его пройти</h1>
       <h1 class="slide-from-down no-scroll auto-play">Путь создает легенду</h1>
     </div>
@@ -75,7 +75,7 @@
           <div class="discount">Скидка <b>50%</b> при покупке всего образа</div>
           <div class="price">19 845 .-</div>
           <form>
-            <input type="text" class="phone" placeholder="Номер телефона">
+            <input name="phone" type="text" class="phone" placeholder="Номер телефона">
             <button type="submit" class="btn btn--submit fullfill">Записаться на примерку</button>
           </form>
         </div>
@@ -100,10 +100,6 @@
       </div>
       <div id="text-info" class="text-info">
         <div>
-          <div class="go-back">
-            <span>Закрыть</span>
-            <div class="svg-sprite--cross"></div>
-          </div>
           <div id="start" class="active">
             <div class="title">Lorem ipsum dolor sit.</div>
             <div class="hr"></div>
@@ -138,6 +134,10 @@
             <div class="product-more " data-index="4">Подробнее о товаре</div>
           </div>
         </div>
+      </div>
+      <div class="go-back">
+        <span>Закрыть</span>
+        <div class="svg-sprite--cross"></div>
       </div>
       <div class="popup" data-index="1">
         <div class="content">
@@ -175,7 +175,7 @@
                   <input id="single" type="radio" name="try">
                   <label for="single">Только этот предмет</label>
                 </div>
-                <input type="text" class="phone" placeholder="Номер телефона">
+                <input name="phone" type="text" class="phone" placeholder="Номер телефона">
                 <input type="hidden" value="product-name">
                 <button class="btn fullfill" type="submit">Записаться на примерку</button>
               </form>

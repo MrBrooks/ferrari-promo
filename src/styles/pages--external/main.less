@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Cormorant+Infant:300|Open+Sans:300,400&subset=cyrillic,cyrillic-ext');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Infant:300|Open+Sans:300,400,700&subset=cyrillic,cyrillic-ext');
 
 body,html{
   padding: 0;
@@ -7,6 +7,7 @@ body,html{
   font-weight: 300;
   font-size: 14px;
   color: @black;
+  overflow-x: hidden;
 }
 h1,h2,h3,h4,h5,h6{
   font-family: 'Cormorant Infant', serif;
@@ -219,6 +220,9 @@ section{
       &:last-child{
         background-image: url(../img/images/open2.jpg);
       }
+      .go-back{
+        opacity: 1;
+      }
     }
     &.small{
       // background-size: cover;
@@ -255,7 +259,7 @@ section{
     transition: z-index 1ms 500ms;
     color: #fff;
     text-align: center;
-    padding-top: 175px;
+    padding-top: 265px;
     .descr{
       max-width: 200px;
       margin: auto;
@@ -272,6 +276,7 @@ section{
     top: 0;
     left: 0;
     padding: 30px;
+    padding-top: 100px;
     text-align: center;
     transition: all 500ms;
     // transition-delay: 500ms;
@@ -301,6 +306,7 @@ section{
       font-weight: 400;
       span{
         display: block;
+        text-decoration: line-through;
       }
     }
     .discount{
@@ -309,7 +315,7 @@ section{
     .price{
       margin-bottom: 20px;
       color: @red;
-      font-weight: 400;
+      font-weight: 700;
       font-size: 18px;
     }
     .btn{
@@ -339,25 +345,8 @@ section{
       // transition-delay: 300ms;
       z-index: 1000;
     }
-    .go-back{
-      opacity: 1;
-      right: 0;
-      top: -30px;
-      left: initial;
-      cursor: pointer;
-      // position: relative;
-      // float: right;
-      z-index: 1001;
-      span{
-        padding-right: 10px;
-      }
-      div{
-        display: inline-block;
-        vertical-align: top;
-      }
-    }
     &>div{
-      width: 350px;
+      width: 450px;
       position: relative;
     }
     &>div>div{
@@ -367,6 +356,7 @@ section{
       top: 0;
       left: 0;
       padding: 60px;
+      padding-top: 100px;
       z-index: -1;
     }
     .img{
@@ -470,6 +460,26 @@ section{
     float: left;
   }
 }
+.go-back{
+  opacity: 1;
+  right: 30px;
+  top: 30px;
+  opacity: 0;
+  // left: initial;
+  cursor: pointer;
+  position: absolute;
+  transition: all 1s;
+  transition-delay: 1.5s;
+  // float: right;
+  z-index: 1001;
+  span{
+    padding-right: 10px;
+  }
+  div{
+    display: inline-block;
+    vertical-align: top;
+  }
+}
 .slider{
   width: 370px;
   .img{
@@ -563,7 +573,8 @@ section{
   opacity: 0;
   margin: auto;
   margin-top: 50px;
-  transition: all 300ms cubic-bezier(0, 0.88, 1, 1);
+  transition: all 1000ms cubic-bezier(0, 0.88, 1, 1);
+  transition-delay: 250ms;
   &:hover{
     transform-origin: 50% 50%;
     transform: scale(1.2);
@@ -701,9 +712,12 @@ input.phone{
   // width: 100%;
   // height: 100vh;
   // z-index: -1;
+  // overflow: hidden;
+  // opacity: 0;
   video{
     // position: fixed;
     position: absolute;
+    opacity: 1;
     top: 50%;
     left: 50%;
     min-width: 100%;
