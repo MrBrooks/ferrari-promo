@@ -4111,16 +4111,19 @@ section
     left: 0;
 
     margin: auto;
-    margin-top: 40px;
+    margin-top: 30px;
 
-    -webkit-transition-delay: 500ms;
-            transition-delay: 500ms;
+    -webkit-transition-delay: 1000ms;
+            transition-delay: 1000ms;
 }
 .start-banner .slide-from-down.active
 {
     top: 40%;
 
     margin-top: 0;
+
+    -webkit-transition-delay: 3s;
+            transition-delay: 3s;
 }
 .start-banner .slide-from-down.prev
 {
@@ -4286,19 +4289,31 @@ section
 
     margin-top: 0;
 
+    -webkit-transition-delay: 1s;
+            transition-delay: 1s;
+
     opacity: 1;
 }
 .dynamin-grid .item.active .lupe:nth-child(2)
 {
     top: 275px;
+
+    -webkit-transition-delay: 1.3s;
+            transition-delay: 1.3s;
 }
 .dynamin-grid .item.active .lupe:nth-child(3)
 {
     top: 450px;
+
+    -webkit-transition-delay: 1.6s;
+            transition-delay: 1.6s;
 }
 .dynamin-grid .item.active .lupe:nth-child(4)
 {
     top: 620px;
+
+    -webkit-transition-delay: 1.9s;
+            transition-delay: 1.9s;
 }
 .dynamin-grid .item.active:first-child
 {
@@ -4310,6 +4325,9 @@ section
 }
 .dynamin-grid .item.active .go-back
 {
+    -webkit-transition-delay: 1s;
+            transition-delay: 1s;
+
     opacity: 1;
 }
 .dynamin-grid .item.small
@@ -4339,6 +4357,8 @@ section
     -webkit-transition: z-index 1ms 500ms;
             transition: opacity 500ms;
             transition: z-index 1ms 500ms;
+    -webkit-transition-delay: 1s;
+            transition-delay: 1s;
     text-align: center;
 
     color: #fff;
@@ -4369,7 +4389,7 @@ section
     width: 40%;
     margin-top: 100px;
     padding: 30px;
-    padding-top: 100px;
+    padding-top: 144px;
 
     -webkit-transition: all 500ms;
             transition: all 500ms;
@@ -4480,7 +4500,7 @@ section
     left: 0;
 
     padding: 60px;
-    padding-top: 100px;
+    padding-top: 184px;
 
     -webkit-transition: all 300ms;
             transition: all 300ms;
@@ -4497,7 +4517,8 @@ section
     border-radius: 50%;
     background-image: url(../img/images/shirt.jpg);
 }
-.dynamin-grid .text-info .product-more
+.dynamin-grid .text-info .product-more,
+.dynamin-grid .text-info .back-to-look
 {
     font-weight: 400;
 
@@ -4508,9 +4529,14 @@ section
 
     color: #f42e2e;
 }
-.dynamin-grid .text-info .product-more:hover
+.dynamin-grid .text-info .product-more:hover,
+.dynamin-grid .text-info .back-to-look:hover
 {
     text-decoration: underline;
+}
+.dynamin-grid .text-info .back-to-look
+{
+    color: #222;
 }
 .dynamin-grid .title
 {
@@ -4631,14 +4657,14 @@ section
 {
     position: absolute;
     z-index: 1001;
-    top: 30px;
+    top: 100px;
     right: 30px;
 
     cursor: pointer;
     -webkit-transition: all 1s;
             transition: all 1s;
-    -webkit-transition-delay: 1.5s;
-            transition-delay: 1.5s;
+    -webkit-transition-delay: 0ms;
+            transition-delay: 0ms;
 
     opacity: 1;
     opacity: 0;
@@ -5181,8 +5207,8 @@ input.phone:focus
     cursor: pointer;
     -webkit-transition: all 250ms;
             transition: all 250ms;
-    -webkit-transition-delay: 1.5s;
-            transition-delay: 1.5s;
+    -webkit-transition-delay: 0ms;
+            transition-delay: 0ms;
 
     opacity: 0;
 }
@@ -5204,26 +5230,6 @@ input.phone:focus
     -webkit-filter: grayscale(100%) brightness(140%);
             filter: grayscale(100%) brightness(140%);
 }
-.lupe:nth-child(1)
-{
-    -webkit-transition-delay: 1.5s;
-            transition-delay: 1.5s;
-}
-.lupe:nth-child(2)
-{
-    -webkit-transition-delay: 1700ms;
-            transition-delay: 1700ms;
-}
-.lupe:nth-child(3)
-{
-    -webkit-transition-delay: 1900ms;
-            transition-delay: 1900ms;
-}
-.lupe:nth-child(4)
-{
-    -webkit-transition-delay: 2100ms;
-            transition-delay: 2100ms;
-}
 .slide-from-down
 {
     position: relative;
@@ -5238,7 +5244,7 @@ input.phone:focus
 }
 .slide-from-down.active
 {
-    top: -50px;
+    top: -30px;
 
     opacity: 1;
 }
@@ -5306,8 +5312,8 @@ input.phone:focus
     }
     to
     {
-        -webkit-transform: translateY(50px);
-                transform: translateY(50px);
+        -webkit-transform: translateY(25px);
+                transform: translateY(25px);
     }
 }
 @keyframes jumping
@@ -5319,8 +5325,8 @@ input.phone:focus
     }
     to
     {
-        -webkit-transform: translateY(50px);
-                transform: translateY(50px);
+        -webkit-transform: translateY(25px);
+                transform: translateY(25px);
     }
 }
 @-webkit-keyframes rotate

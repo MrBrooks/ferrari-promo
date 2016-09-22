@@ -84,12 +84,12 @@ section{
     left: 0;
     right: 0;
     margin: auto;
-    margin-top: 40px;
-    transition-delay: 500ms;
+    margin-top: 30px;
+    transition-delay: 1000ms;
     &.active{
       top: 40%;
       margin-top: 0;
-      // transition-delay: 0;
+      transition-delay: 3s;
     }
     &.prev{
       margin-top: 0;
@@ -215,14 +215,18 @@ section{
         margin-top: 0;
         position: absolute;
         top: 125px;
+        transition-delay: 1s;
         &:nth-child(2){
           top: 275px;
+          transition-delay: 1.3s;
         }
         &:nth-child(3){
           top: 450px;
+          transition-delay: 1.6s;
         }
         &:nth-child(4){
           top: 620px;
+          transition-delay: 1.9s;
         }
       }
       &:first-child{
@@ -233,6 +237,7 @@ section{
       }
       .go-back{
         opacity: 1;
+        transition-delay: 1s;
       }
     }
     &.small{
@@ -268,6 +273,7 @@ section{
     background-color: rgba(0,0,0,0.5);
     transition: opacity 500ms;
     transition: z-index 1ms 500ms;
+    transition-delay: 1s;
     color: #fff;
     text-align: center;
     padding-top: 265px;
@@ -287,7 +293,7 @@ section{
     top: 0;
     left: 0;
     padding: 30px;
-    padding-top: 100px;
+    padding-top: 144px;
     text-align: center;
     transition: all 500ms;
     // transition-delay: 500ms;
@@ -367,7 +373,7 @@ section{
       top: 0;
       left: 0;
       padding: 60px;
-      padding-top: 100px;
+      padding-top: 184px;
       z-index: -1;
     }
     .img{
@@ -379,7 +385,7 @@ section{
       border-radius: 50%;
       margin-bottom: 20px;
     }
-    .product-more{
+    .product-more, .back-to-look{
       text-transform: uppercase;
       color: @red;
       cursor: pointer;
@@ -388,6 +394,9 @@ section{
       &:hover{
         text-decoration: underline;
       }
+    }
+    .back-to-look{
+      color: @black;
     }
   }
   .title{
@@ -474,13 +483,14 @@ section{
 .go-back{
   opacity: 1;
   right: 30px;
-  top: 30px;
+  top: 100px;
   opacity: 0;
   // left: initial;
   cursor: pointer;
   position: absolute;
   transition: all 1s;
-  transition-delay: 1.5s;
+  // transition-delay: 1.5s;
+  transition-delay: 0ms;
   // float: right;
   z-index: 1001;
   span{

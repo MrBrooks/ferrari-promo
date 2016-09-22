@@ -36,6 +36,8 @@ $(document).ready(function() {
       var popups = $(this).find(".popup");
       var close_btns = popups.find('.btn-close');
       var mores = $(this).find(".product-more");
+      var back_to_look = $(this).find('.back-to-look');
+      var start_block = $(this).find('#start');
       lupes.on('click',function(){
           $(this).css('transition-delay','0ms').addClass('active').siblings().removeClass('active');
           // expand(parseInt($(this).attr('data-index')));
@@ -46,6 +48,11 @@ $(document).ready(function() {
       });
       close_btns.on('click',function(){
         popups.removeClass('active');
+      });
+      back_to_look.on('click',function(){
+        tabs.removeClass('active');
+        start_block.addClass('active');
+        lupes.removeClass('active');
       });
 
     });
