@@ -281,6 +281,7 @@ function VideoControl(){
     vid = document.getElementById("ferrari-video");
     vid.onended = function(){
       $("#anim-arrow").addClass('jumping');
+      $("#hide-after-video").fadeOut(500);
     };
   }
 
