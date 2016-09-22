@@ -8,7 +8,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-@import url('https://fonts.googleapis.com/css?family=Cormorant+Infant:300|Open+Sans:300,400&subset=cyrillic,cyrillic-ext');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Infant:300|Open+Sans:300,400,700&subset=cyrillic,cyrillic-ext');
 html
 {
     font-family: sans-serif;
@@ -3998,6 +3998,8 @@ html
     font-size: 14px;
     font-weight: 300;
 
+    overflow-x: hidden;
+
     margin: 0;
     padding: 0;
 
@@ -4291,6 +4293,10 @@ section
 {
     background-image: url(../img/images/open2.jpg);
 }
+.dynamin-grid .item.active .go-back
+{
+    opacity: 1;
+}
 .dynamin-grid .item.small
 {
     width: 0;
@@ -4312,7 +4318,7 @@ section
 {
     width: 100%;
     height: 700px;
-    padding-top: 175px;
+    padding-top: 265px;
 
     -webkit-transition: opacity 500ms;
     -webkit-transition: z-index 1ms 500ms;
@@ -4348,6 +4354,7 @@ section
     width: 40%;
     margin-top: 100px;
     padding: 30px;
+    padding-top: 100px;
 
     -webkit-transition: all 500ms;
             transition: all 500ms;
@@ -4391,6 +4398,8 @@ section
 .dynamin-grid .book .old-price span
 {
     display: block;
+
+    text-decoration: line-through;
 }
 .dynamin-grid .book .discount
 {
@@ -4399,7 +4408,7 @@ section
 .dynamin-grid .book .price
 {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 700;
 
     margin-bottom: 20px;
 
@@ -4442,32 +4451,11 @@ section
 
     opacity: 1;
 }
-.dynamin-grid .text-info .go-back
-{
-    z-index: 1001;
-    top: -30px;
-    right: 0;
-    left: initial;
-
-    cursor: pointer;
-
-    opacity: 1;
-}
-.dynamin-grid .text-info .go-back span
-{
-    padding-right: 10px;
-}
-.dynamin-grid .text-info .go-back div
-{
-    display: inline-block;
-
-    vertical-align: top;
-}
 .dynamin-grid .text-info > div
 {
     position: relative;
 
-    width: 350px;
+    width: 450px;
 }
 .dynamin-grid .text-info > div > div
 {
@@ -4477,6 +4465,7 @@ section
     left: 0;
 
     padding: 60px;
+    padding-top: 100px;
 
     -webkit-transition: all 300ms;
             transition: all 300ms;
@@ -4623,6 +4612,32 @@ section
 
     vertical-align: top;
 }
+.go-back
+{
+    position: absolute;
+    z-index: 1001;
+    top: 30px;
+    right: 30px;
+
+    cursor: pointer;
+    -webkit-transition: all 1s;
+            transition: all 1s;
+    -webkit-transition-delay: 1.5s;
+            transition-delay: 1.5s;
+
+    opacity: 1;
+    opacity: 0;
+}
+.go-back span
+{
+    padding-right: 10px;
+}
+.go-back div
+{
+    display: inline-block;
+
+    vertical-align: top;
+}
 .slider
 {
     width: 370px;
@@ -4733,8 +4748,10 @@ section
     margin: auto;
     margin-top: 50px;
 
-    -webkit-transition: all 300ms cubic-bezier(0, .88, 1, 1);
-            transition: all 300ms cubic-bezier(0, .88, 1, 1);
+    -webkit-transition: all 1000ms cubic-bezier(0, .88, 1, 1);
+            transition: all 1000ms cubic-bezier(0, .88, 1, 1);
+    -webkit-transition-delay: 250ms;
+            transition-delay: 250ms;
 
     opacity: 0;
     border: 2px solid red;
@@ -4931,6 +4948,8 @@ input.phone:focus
     -webkit-transform: translateX(-50%) translateY(-50%);
         -ms-transform: translateX(-50%) translateY(-50%);
             transform: translateX(-50%) translateY(-50%);
+
+    opacity: 1;
 }
 .anim-border
 {
@@ -5147,6 +5166,8 @@ input.phone:focus
     cursor: pointer;
     -webkit-transition: all 250ms;
             transition: all 250ms;
+    -webkit-transition-delay: 1.5s;
+            transition-delay: 1.5s;
 
     opacity: 0;
 }
@@ -5159,6 +5180,8 @@ input.phone:focus
 .lupe.active
 {
     cursor: initial;
+    -webkit-transition-delay: 0ms;
+            transition-delay: 0ms;
     -webkit-transform: scale(1);
         -ms-transform: scale(1);
             transform: scale(1);
@@ -5168,23 +5191,23 @@ input.phone:focus
 }
 .lupe:nth-child(1)
 {
-    -webkit-transition-delay: 0;
-            transition-delay: 0;
+    -webkit-transition-delay: 1.5s;
+            transition-delay: 1.5s;
 }
 .lupe:nth-child(2)
 {
-    -webkit-transition-delay: 50ms;
-            transition-delay: 50ms;
+    -webkit-transition-delay: 1700ms;
+            transition-delay: 1700ms;
 }
 .lupe:nth-child(3)
 {
-    -webkit-transition-delay: 100ms;
-            transition-delay: 100ms;
+    -webkit-transition-delay: 1900ms;
+            transition-delay: 1900ms;
 }
 .lupe:nth-child(4)
 {
-    -webkit-transition-delay: 150ms;
-            transition-delay: 150ms;
+    -webkit-transition-delay: 2100ms;
+            transition-delay: 2100ms;
 }
 .slide-from-down
 {
@@ -5251,6 +5274,39 @@ input.phone:focus
     height: 100px;
     margin-top: -15px;
     margin-left: auto;
+}
+.anim-arrow .arrow.jumping
+{
+    -webkit-animation: jumping 1s cubic-bezier(1, .17, 1, 1) 0s infinite alternate;
+            animation: jumping 1s cubic-bezier(1, .17, 1, 1) 0s infinite alternate;
+
+    opacity: 1;
+}
+@-webkit-keyframes jumping
+{
+    from
+    {
+        -webkit-transform: translateY(0px);
+                transform: translateY(0px);
+    }
+    to
+    {
+        -webkit-transform: translateY(50px);
+                transform: translateY(50px);
+    }
+}
+@keyframes jumping
+{
+    from
+    {
+        -webkit-transform: translateY(0px);
+                transform: translateY(0px);
+    }
+    to
+    {
+        -webkit-transform: translateY(50px);
+                transform: translateY(50px);
+    }
 }
 @-webkit-keyframes rotate
 {
