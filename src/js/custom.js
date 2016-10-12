@@ -30,6 +30,10 @@ $(document).ready(function() {
     var products = $(".product-block .item");
     // var tabs = $("#text-info .tab");
     // var popups = $(".product-block .popup");
+    var mobile = false;
+    if($(window).width() < 768){
+      mobile = true;
+    }
     products.each(function(){
       var lupes = $(this).find(".lupe");
       var tabs = $(this).find(".tab");
@@ -45,6 +49,9 @@ $(document).ready(function() {
         });
       mores.on('click',function(){
         $(popups.get(parseInt($(this).attr('data-index')) - 1)).addClass('active');
+        if(mobile){
+          $("html").css('overflow','hidden');
+        }
       });
       close_btns.on('click',function(){
         popups.removeClass('active');
@@ -60,7 +67,7 @@ $(document).ready(function() {
     function fullView(){
       tabs.each(function(){
         $(this).find('.product-more').on('click', function(){
-          $('.popup[data-index=""]')
+          $('.popup[data-index=""]');
         });
       });
     }
@@ -281,7 +288,9 @@ function VideoControl(){
     vid = document.getElementById("ferrari-video");
     vid.onended = function(){
       $("#anim-arrow").addClass('jumping');
-      $("#hide-after-video").fadeOut(500);
+      if($(window).width() >= 768){
+        $("#hide-after-video").fadeOut(500);
+      }
     };
   }
 

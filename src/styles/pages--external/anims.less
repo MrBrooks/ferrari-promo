@@ -12,6 +12,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  // z-index: 1005;
 }
 
 .anim-line{
@@ -20,6 +21,7 @@
   background-color: red;
   position: absolute;
   transition: all @dur;
+  // z-index: 1005;
   &:nth-child(1){
     top: @dist;
     transition-delay: @start-deley;
@@ -70,6 +72,10 @@
     animation-fill-mode: forwards;
     // transform: rotate(180deg);
     // transform-origin: 50% 50%;
+    @media screen and (max-width: @mobile){
+      animation: width-anim-mobile @dur linear @start-deley 1 forwards;
+      right: ~"calc(80% - @{dist})";
+    }
   }
   &:nth-child(5){
     // width: 40%;
@@ -86,6 +92,10 @@
     width: 0;
     animation: width-anim-half @dur linear @start-deley 1;
     animation-fill-mode: forwards;
+    @media screen and (max-width: @mobile){
+      animation: width-anim-mobile @dur linear @start-deley 1 forwards;
+      left: ~"calc(80% - @{dist})";
+    }
   }
 }
 .anim-once(@name, @dur, @delay){
@@ -107,6 +117,9 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  @media screen and (max-width: @mobile){
+    top: 50%;
+  }
   .arrow{
     bottom: 0;
     margin-left: -5px;
@@ -265,6 +278,10 @@
 @keyframes width-anim-half {
   from { width: 0% }
   to { width: 40% }
+}
+@keyframes width-anim-mobile {
+  from { width: 0px }
+  to { width: 20% }
 }
 @keyframes height-anim {
   from { height: 0% }
