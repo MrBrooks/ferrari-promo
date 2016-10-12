@@ -55,6 +55,7 @@ $(document).ready(function() {
       });
       close_btns.on('click',function(){
         popups.removeClass('active');
+        $("html").css('overflow','auto');
       });
       back_to_look.on('click',function(){
         tabs.removeClass('active');
