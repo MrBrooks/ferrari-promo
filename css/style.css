@@ -4314,7 +4314,7 @@ section
 
     cursor: initial;
 
-    background-image: url(../img/images/open3.jpg);
+    background-image: url(../img/images/open2.jpg);
 }
 @media screen and (max-width: 767px)
 {
@@ -4420,7 +4420,7 @@ section
 }
 .dynamin-grid .item.active:last-child
 {
-    background-image: url(../img/images/open2.jpg);
+    background-image: url(../img/images/open3.jpg);
 }
 .dynamin-grid .item.active .go-back
 {
@@ -4774,35 +4774,6 @@ section
         display: none;
     }
 }
-.popup .btn-close-mobile
-{
-    display: none;
-
-    text-align: center;
-}
-@media screen and (max-width: 767px)
-{
-    .popup .btn-close-mobile
-    {
-        display: inline-block;
-
-        margin: auto;
-    }
-}
-.popup .btn-close-mobile .btn-close
-{
-    position: initial;
-}
-@media screen and (max-width: 767px)
-{
-    .popup .btn-close-mobile .btn-close
-    {
-        display: inline-block;
-
-        margin: auto;
-        margin-bottom: 20px;
-    }
-}
 .popup .content
 {
     width: 790px;
@@ -4818,6 +4789,35 @@ section
     .popup .content
     {
         width: 100%;
+    }
+}
+.popup .content .btn-close-mobile
+{
+    display: none;
+
+    text-align: center;
+}
+@media screen and (max-width: 767px)
+{
+    .popup .content .btn-close-mobile
+    {
+        display: inline-block;
+
+        margin: auto;
+    }
+}
+.popup .content .btn-close-mobile .btn-close
+{
+    position: initial;
+}
+@media screen and (max-width: 767px)
+{
+    .popup .content .btn-close-mobile .btn-close
+    {
+        display: inline-block;
+
+        margin: auto;
+        margin-bottom: 20px;
     }
 }
 .popup .product-info
