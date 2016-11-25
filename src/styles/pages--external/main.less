@@ -171,7 +171,7 @@ section{
   .item{
     // width: 100%/3;
     &:extend(.full-bg);
-    background-image: url(../img/images/2.jpg);
+    background-image: url(../img/images/look2/main_photo.jpg);
     // border: 1px solid black;
     min-height: @dynamic-grig-height;
     // width: 100%/3;
@@ -194,10 +194,10 @@ section{
 
     }
     &:first-child{
-      background-image: url(../img/images/1.jpg);
+      background-image: url(../img/images/look1/main_photo.jpg);
     }
     &:last-child{
-      background-image: url(../img/images/3.jpg);
+      background-image: url(../img/images/look3/main_photo.jpg);
     }
     &:hover{
       width: 50%;
@@ -220,7 +220,8 @@ section{
       // background-size: contain;
       cursor: initial;
       width: 100%;
-      background-image: url(../img/images/open2.jpg);
+      background-image: url(../img/images/look2/main_photo_open.jpg);
+      background-color: #eee;
       @media screen and (max-width: @mobile){
         padding-top: 500px;
         background-size: auto 500px;
@@ -273,15 +274,87 @@ section{
           top: 620px;
           transition-delay: 1.9s;
         }
+        &:nth-child(5){
+          // top: 620px;
+          transition-delay: 2.4s;
+        }
+        &:hover{
+          transition-delay:0ms;
+          transform: scale(1.2);
+        }
         @media screen and (max-width: @mobile){
           display: none;
         }
       }
+      .lupes-1{
+        .lupe{
+          &:nth-child(1){
+            top: 120px;
+            left: 10px;
+          }
+          &:nth-child(2){
+            top: 155px;
+            left: -20px;
+          }
+          &:nth-child(3){
+            top: 230px;
+            left: -120px;
+          }
+          &:nth-child(4){
+            top: 300px;
+            left: 15px;
+          }
+          &:nth-child(5){
+            top: 400px;
+            left: 50px;
+          }
+        }
+      }
+      .lupes-2{
+        .lupe{
+          &:nth-child(1){
+            top: 130px;
+            left: -40px;
+          }
+          &:nth-child(2){
+            top: 200px;
+            left: 45px;
+          }
+          &:nth-child(3){
+            top: 310px;
+            left: -40px;
+          }
+          &:nth-child(4){
+            top: 450px;
+            left: 45px;
+          }
+        }
+      }
+      .lupes-3{
+        .lupe{
+          &:nth-child(1){
+            top: 150px;
+            left: 45px;
+          }
+          &:nth-child(2){
+            top: 200px;
+            left: -10px;
+          }
+          &:nth-child(3){
+            top: 345px;
+            left: 105px;
+          }
+          &:nth-child(4){
+            top: 490px;
+            left: 45px;
+          }
+        }
+      }
       &:first-child{
-        background-image: url(../img/images/open.jpg);
+        background-image: url(../img/images/look1/main_photo_open.jpg);
       }
       &:last-child{
-        background-image: url(../img/images/open3.jpg);
+        background-image: url(../img/images/look3/main_photo_open.jpg);
       }
       .go-back{
         opacity: 1;
@@ -316,7 +389,6 @@ section{
     z-index: 1000;
     left: ~"calc(50% - 0px)";
     width: 43px;
-    
   }
   .info{
     width: 100%;

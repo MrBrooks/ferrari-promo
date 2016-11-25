@@ -83,14 +83,22 @@ $(document).ready(function() {
     selector: '.slide-from-down:not(.no-scroll)',
     visible: 'active'
   });
+  var start_anim = new AnimOnScroll({
+    selector: '.start-anim',
+    visible: 'playing'
+  });
 
   $("input[name='phone']").mask('+7 (000) 000-00-00');
 
   var video_control = new VideoControl();
 
-  var sliders = $('.slider').owlCarousel({
-    dotsContainer: ".slider-preview",
-    items: 1
+  var sliders = $(this).find('.slider');
+  sliders.each(function(){
+    var index = $(this).attr('data-slider-index');
+    $(this).owlCarousel({
+      dotsContainer: "#slider-preview-"+index,
+      items: 1,
+    });
   });
 
   // var vid = document.getElementById("ferrari-video");
@@ -104,6 +112,7 @@ $(document).ready(function() {
       event: "scroll",
       actions: [
         scroll_anim.updateView,
+        start_anim.updateView,
         video_control.update,
         // video_play.scrollControl,
         // econtenta_pixel.checkScrollConditions
@@ -112,6 +121,8 @@ $(document).ready(function() {
     {
       event: "resize",
       actions: [
+        scroll_anim.updateItems,
+        start_anim.updateItems,
         // anim_on_scroll.updateItems,
         // full_height.update
       ]
@@ -305,5 +316,3 @@ function VideoControl(){
 
   init();
 }
-
-
