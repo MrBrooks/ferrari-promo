@@ -4623,7 +4623,7 @@ section
     width: 350px;
     padding: 40px 30px;
 
-    background-color: #ededed;
+    background-color: #fff;
 }
 .dynamin-grid .book .descr
 {
@@ -4923,7 +4923,7 @@ section
     display: inline-block;
     float: left;
 
-    width: 50%;
+    width: 100%;
     margin-bottom: 10px;
 
     vertical-align: top;
@@ -4942,7 +4942,7 @@ section
 {
     font-size: 18px;
 
-    text-align: right;
+    text-align: center;
 }
 @media screen and (max-width: 767px)
 {
