@@ -4966,8 +4966,11 @@ label
 .popup .product-info .price
 {
     font-size: 18px;
+    font-weight: 700;
 
     text-align: center;
+
+    color: #f42e2e;
 }
 @media screen and (max-width: 767px)
 {
