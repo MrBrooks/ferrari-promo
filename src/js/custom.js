@@ -3,15 +3,12 @@
 /**************************************/
 
 $(window).load(function(){
-  $('#preloader').fadeOut(500);
+  // $('#preloader').fadeOut(500);
+  lazyLoad();
 });
 
 $(document).ready(function() {
 
-    /* Custom */
-
- /*    //= ./common/material-init.js */
- /*    //= ./common/google-analytics.js */
  function DynamicGrid(){
     var items = $('.dynamin-grid .item');
     var close_btn = $('.dynamin-grid .go-back');
@@ -76,6 +73,7 @@ $(document).ready(function() {
  
   DynamicGrid();
   ProductView();
+  var fullheight = new FullHeight();
 
   var auto_play = new AutoPlay();
   auto_play.start();
@@ -88,7 +86,7 @@ $(document).ready(function() {
     visible: 'playing'
   });
 
-  $("input[name='phone']").mask('+7 (000) 000-00-00');
+  $("input[name='phone']").mask('8 (000) 000-00-00',{placeholder: "8 (___) _ _ _-_ _-_ _"});
 
   var video_control = new VideoControl();
 
@@ -100,11 +98,10 @@ $(document).ready(function() {
       items: 1,
     });
   });
-
-  // var vid = document.getElementById("ferrari-video");
-  // vid.onended = function(){
-  //   $(this).css('opacity', 0);
-  // };
+  var submit = new AjaxSubmit({
+    form: "form",
+    message: ".btn"
+  });
 
 
   var window_updater = new WindowUpdater([
@@ -123,6 +120,7 @@ $(document).ready(function() {
       actions: [
         scroll_anim.updateItems,
         start_anim.updateItems,
+        fullheight.update,
         // anim_on_scroll.updateItems,
         // full_height.update
       ]
@@ -307,12 +305,175 @@ function VideoControl(){
   }
 
   this.update = function (){
-    if($(window).scrollTop() > 20){
-      vid.pause();
-    } else{
-      vid.play();
+    if($(window).width() >= 768){
+      if($(window).scrollTop() > 20){
+        vid.pause();
+      } else{
+        vid.play();
+      }
     }
   };
 
+  if($(window).width() > 768){
+    init();
+  }
+}
+
+function FullHeight(){
+  var elements = $(".full-height"), wh;
+
+  this.update = function(){
+    wh = $(window).height();
+    elements.each(setHeight)
+  };
+
+  function setHeight(){
+    $(this).height(wh);
+  }
+
+  this.update();
+}
+
+//require JQUERY
+function AjaxSubmit(options){
+  var def = {
+    form: '.ajax-submit',
+    btn: '[type="submit"]',
+    message: '.message',
+    isMessageInput: false,
+    inputs: 'input:not([type="submit"]), textarea',
+    invalid: 'invalid', //class
+    validate: validate, //boolean function(element)
+    message_succsess: "Отплавлено",
+    succsess_callback: function(){},
+    error_callback: function(){},
+  };
+  var opts = $.extend(def, options);
+
+  var form, btn, message, inputs, sendingFlag = false, message_init = "";
+
+  function init(){
+    form = $(opts.form);
+    btn = form.find(opts.btn);
+    // message = form.find(opts.message);
+    // inputs = form.find(opts.inputs);
+    form.on("submit", submit);
+  }
+
+  function submit(){
+    var err = false;
+    inputs = $(this).find(opts.inputs);
+    message = $(this).find(opts.message);
+
+    inputs.each(function(){
+      if(opts.validate($(this))){
+        $(this).removeClass(opts.invalid);
+      } else{
+        $(this).addClass(opts.invalid);
+        err = true;
+      }
+
+    });
+
+    if (!err){
+      var data = $(this).serialize();
+      $.ajax({
+         type: 'POST',
+         url: "send.php",
+         dataType: 'json',
+         data: data, 
+         beforeSend: beforeSend,
+         success: success,
+         error: error,
+         complete: complete
+      });
+    }
+    return false;
+  }
+
+  function beforeSend(){
+    if(opts.isMessageInput){
+      message_init = message.val();
+      message.val("Идет отправка...");
+    } else{
+      message_init = message.text();
+      message.text("Идет отправка...");
+    }
+    btn.prop('disabled', true);
+    sendingFlag = true;
+  }
+
+  function success(data){
+    sendingFlag = false;
+    if (data['error']) { 
+      if(opts.isMessageInput){
+        message.val("Ошибка");
+      } else{
+        message.text("Ошибка");
+      }
+    } else {
+      if(opts.isMessageInput){
+        message.val(opts.message_succsess);
+      } else{
+        message.text(opts.message_succsess);
+      }
+    }
+    opts.succsess_callback();
+  }
+
+  function error(xhr, ajaxOptions, thrownError){
+    sendingFlag = false;
+    if(opts.isMessageInput){
+      message.val("Ошибка");
+    } else{
+      message.text("Ошибка");
+    }
+    opts.error_callback();
+    // console.log(xhr);
+    // console.log(ajaxOptions);
+    // console.log(thrownError);
+    // btn.prop('disabled', false);
+  }
+  function complete(){
+    if(sendingFlag){
+      message.text(message_init);
+      sendingFlag = false;
+    }
+    btn.prop('disabled', false);
+  }
+  function validate(el){
+    var field_type = el.attr('data-type');
+    switch(field_type){
+      case 'required': 
+        if (el.val() === ''){
+          return false;
+        }
+        break;
+      case 'email': 
+        var isemail = /.+@.+\..+/i;
+        var t = el.val();
+        if(t === '' || !isemail.test(t)){
+          return false;
+        }
+      break;
+      default: ;
+    }
+    
+    return true;
+  }
   init();
+}
+
+function lazyLoad(){
+  var items = $("[data-src]"), curr = 0;
+
+  items.on('load', loadNext);
+
+  function loadNext(){
+    var src = $(items.get(curr)).attr('data-src');
+    $(items.get(curr)).attr('src',src);
+    curr++;
+  }
+  
+  loadNext();
 }

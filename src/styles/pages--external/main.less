@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Cormorant+Infant:300|Open+Sans:300,400,700&subset=cyrillic,cyrillic-ext');
+// @import url('https://fonts.googleapis.com/css?family=Cormorant+Infant:300|Open+Sans:300,400,700&subset=cyrillic,cyrillic-ext');
 
 body,html{
   padding: 0;
@@ -30,6 +30,9 @@ h2{
 }
 section{
   position: relative;
+}
+label{
+  cursor: pointer;
 }
 .btn{
   font-weight: 400;
@@ -66,10 +69,18 @@ section{
   height: 100vh;
   // background-image: url(http://placehold.it/1920x1080/444/700);
   // background-color: rgba(0,0,0,0.7);
+  @media screen and (max-width: @mobile){
+    background-image: url(../img/images/poster_mobile.jpg);
+  }
   h1{
     color: #fff;
     @media screen and (max-width: @mobile){
-      padding: 0 30px;
+      padding: 0 40px;
+      position: absolute;
+      top: 100px;
+      left: 0;
+      right: 0;
+      margin: auto;
     }
   }
   .content{
@@ -120,6 +131,11 @@ section{
     height: 100%;
     width: 100%;
     text-align: center;
+  }
+  h1{
+    @media screen and (max-width: @mobile){
+      padding: 0 40px;
+    }
   }
   .descr{
     max-width: 400px;
@@ -585,7 +601,7 @@ section{
     position: fixed;
     overflow: scroll;
     padding: 20px;
-    padding-top: 30px;
+    padding-top: 0px;
     background-color: #f3f3f3;
     height: 100%;
   }
@@ -617,9 +633,11 @@ section{
       text-align: center;
       @media screen and (max-width: @mobile){
         display: inline-block;
-        margin: auto;
+        // margin: auto;
+        padding: 15px 0 0;
+        position: initial;
       }
-      .btn-close{
+      div{
         position: initial;
         @media screen and (max-width: @mobile){
           display: inline-block;
@@ -736,6 +754,7 @@ section{
   margin-top: 15px;
   @media screen and (max-width: @mobile){
     width: 100%;
+    margin-bottom: 10px;
   }
   // &>div{
   //   display: inline-block;
@@ -753,7 +772,7 @@ section{
       border: 2px solid @red;
     }
     @media screen and (max-width: @mobile){
-      width: auto;
+      width: 20%;
       height: auto;
       padding-right: 2px;
     }
@@ -982,6 +1001,9 @@ input.phone{
     box-shadow: none;
     outline: none;
   }
+  &.invalid{
+    box-shadow: 0 0 10px @red;
+  }
 }
 .background-video {
   // &:extend(.full-bg);
@@ -994,11 +1016,11 @@ input.phone{
   &:extend(.full-bg);
   @media screen and (max-width: @mobile){
     
-    background-image: url(../img/images/poster_mobile.jpg);
-    width: 100%;
-    height: 100vh;
-    z-index: -1;
-    position: absolute;
+    // background-image: url(../img/images/poster_mobile.jpg);
+    // width: 100%;
+    // height: 100vh;
+    // z-index: -1;
+    // position: absolute;
   }
   video{
     // position: fixed;

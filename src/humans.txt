@@ -1,18 +1,20 @@
 /* TEAM */
 	Developer: Denis Kulikov
-	Site: vk.com/altingfest
+	Site: https://vk.com/altingfest
 	Contact: altingfest [at] gmail.com
 	From: Saint-Petersburg, Russia
 	Location: Saint-Petersburg, Russia
+	Design: Anastasia Leonova
+	Site: https://www.behance.net/incarmine
 
 /* THANKS */
 
   company: MrBrooks
+  site: http://mbrooks.ru
 
 /* SITE */
 	Language: Russian
 	Doctype:HTML5
 	Standards: HTML5, CSS3
-	Components: Modernizr, jQuery, Bootstrap etc.
+	Components: jQuery
 	IDE: Sublime, Gulp, Git, GitHub Pages
-    Software: Software used for the development

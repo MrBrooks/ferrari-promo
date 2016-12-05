@@ -8,7 +8,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-@import url('https://fonts.googleapis.com/css?family=Cormorant+Infant:300|Open+Sans:300,400,700&subset=cyrillic,cyrillic-ext');
 html
 {
     font-family: sans-serif;
@@ -4042,6 +4041,10 @@ section
 {
     position: relative;
 }
+label
+{
+    cursor: pointer;
+}
 .btn
 {
     font-weight: 400;
@@ -4089,6 +4092,13 @@ section
     width: 100%;
     height: 100vh;
 }
+@media screen and (max-width: 767px)
+{
+    .start-banner
+    {
+        background-image: url(../img/images/poster_mobile.jpg);
+    }
+}
 .start-banner h1
 {
     color: #fff;
@@ -4097,7 +4107,13 @@ section
 {
     .start-banner h1
     {
-        padding: 0 30px;
+        position: absolute;
+        top: 100px;
+        right: 0;
+        left: 0;
+
+        margin: auto;
+        padding: 0 40px;
     }
 }
 .start-banner .content
@@ -4172,6 +4188,13 @@ section
     height: 100%;
 
     text-align: center;
+}
+@media screen and (max-width: 767px)
+{
+    .path-block h1
+    {
+        padding: 0 40px;
+    }
 }
 .path-block .descr
 {
@@ -4827,7 +4850,7 @@ section
 
         height: 100%;
         padding: 20px;
-        padding-top: 30px;
+        padding-top: 0;
 
         background-color: #f3f3f3;
     }
@@ -4880,18 +4903,20 @@ section
 {
     .popup .content .btn-close-mobile
     {
+        position: initial;
+
         display: inline-block;
 
-        margin: auto;
+        padding: 15px 0 0;
     }
 }
-.popup .content .btn-close-mobile .btn-close
+.popup .content .btn-close-mobile div
 {
     position: initial;
 }
 @media screen and (max-width: 767px)
 {
-    .popup .content .btn-close-mobile .btn-close
+    .popup .content .btn-close-mobile div
     {
         display: inline-block;
 
@@ -5078,6 +5103,7 @@ section
     .slider-preview
     {
         width: 100%;
+        margin-bottom: 10px;
     }
 }
 .slider-preview .img
@@ -5096,7 +5122,7 @@ section
 {
     .slider-preview .img
     {
-        width: auto;
+        width: 20%;
         height: auto;
         padding-right: 2px;
     }
@@ -5411,18 +5437,9 @@ input.phone:focus
     outline: none;
     box-shadow: none;
 }
-@media screen and (max-width: 767px)
+input.phone.invalid
 {
-    .background-video
-    {
-        position: absolute;
-        z-index: -1;
-
-        width: 100%;
-        height: 100vh;
-
-        background-image: url(../img/images/poster_mobile.jpg);
-    }
+    box-shadow: 0 0 10px #f42e2e;
 }
 .background-video video
 {
@@ -5513,13 +5530,12 @@ input.phone:focus
     right: calc(60% - 30px);
     bottom: 30px;
 
-    width: 40%;
     width: 0;
 
-    -webkit-transition-delay: 3500ms;
-            transition-delay: 3500ms;
     -webkit-animation: width-anim-half 1.5s linear 500ms 1;
             animation: width-anim-half 1.5s linear 500ms 1;
+
+    opacity: 1;
 
     -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
@@ -5716,19 +5732,21 @@ input.phone:focus
 }
 .playing .slide-from-down
 {
-    position: relative;
-    top: 0;
-
     -webkit-transition: all 1s;
             transition: all 1s;
     -webkit-transition-delay: 500ms;
             transition-delay: 500ms;
+    -webkit-transform: translateY(30px);
+        -ms-transform: translateY(30px);
+            transform: translateY(30px);
 
     opacity: 0;
 }
 .playing .slide-from-down.active
 {
-    top: -30px;
+    -webkit-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+            transform: translateY(0px);
 
     opacity: 1;
 }
