@@ -4999,7 +4999,7 @@ label
 }
 .popup .product-info .form-block .btn
 {
-    margin-bottom: 20px;
+    margin-bottom: 0;
 
     color: #222;
 }
@@ -5203,6 +5203,17 @@ label
 {
     height: 100%;
 }
+.btn-quote
+{
+    font-size: 12px;
+
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
+.quote
+{
+    font-size: 12px;
+}
 .circle-btn
 {
     position: absolute;
@@ -5290,11 +5301,54 @@ label
 }
 .main-site
 {
-    padding: 55px 0;
+    padding: 55px;
 
     text-align: center;
 
+    color: white;
     background-color: #1e1e1e;
+}
+.main-site:after
+{
+    display: block;
+    clear: both;
+
+    content: '';
+}
+.main-site > div
+{
+    display: inline-block;
+    float: left;
+
+    width: 25%;
+    margin-right: 8.33333333%;
+
+    text-align: left;
+    vertical-align: top;
+}
+@media screen and (max-width: 767px)
+{
+    .main-site > div
+    {
+        width: 100%;
+        margin: 0;
+
+        text-align: center;
+    }
+}
+.main-site .contacts
+{
+    width: 33.33333333%;
+    margin: auto;
+
+    text-align: center;
+}
+@media screen and (max-width: 767px)
+{
+    .main-site .contacts
+    {
+        width: 100%;
+    }
 }
 .main-site .socials
 {
