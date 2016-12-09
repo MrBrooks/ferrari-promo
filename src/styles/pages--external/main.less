@@ -690,7 +690,7 @@ label{
       }
       .btn{
         color: @black;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
         &:hover{
           color: #fff;
         }
@@ -838,6 +838,14 @@ label{
     height: 100%;
   }
 }
+.btn-quote{
+  margin-top: 3px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.quote{
+  font-size: 12px;
+}
 .circle-btn{
   width: 78px;
   height: 78px;
@@ -899,8 +907,35 @@ label{
 }
 .main-site{
   background-color: @dark;
-  padding: 55px 0;
+  color: white;
+  padding: 55px;
   text-align: center;
+  &:after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+  &>div{
+    width: 100% * 3 / 12;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    float: left;
+    margin-right: 100% * 1 / 12;
+    @media screen and (max-width: @mobile){
+      width: 100%;
+      margin: 0;
+      text-align: center;
+    }
+  }
+  .contacts{
+    text-align: center;
+    width: 100% * 4 / 12;
+    margin: auto;
+    @media screen and (max-width: @mobile){
+      width: 100%;
+    }
+  }
   .socials{
     margin-bottom: 20px;
     font-size: 0;
