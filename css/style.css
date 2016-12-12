@@ -4401,6 +4401,7 @@ label
 .dynamin-grid .item.active .lupe
 {
     position: absolute;
+    z-index: 1001;
     top: 125px;
 
     margin-top: 0;
@@ -4508,8 +4509,8 @@ label
 }
 .dynamin-grid .item.active .lupes-3 .lupe:nth-child(3)
 {
-    top: 345px;
-    left: 105px;
+    top: 355px;
+    left: 100px;
 }
 .dynamin-grid .item.active .lupes-3 .lupe:nth-child(4)
 {
@@ -4551,7 +4552,7 @@ label
 .dynamin-grid .lupes
 {
     position: absolute;
-    z-index: 1000;
+    z-index: 1001;
     top: 0;
     left: calc(50% - 0px);
 
