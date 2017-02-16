@@ -1078,3 +1078,22 @@ input.phone{
     }
   }
 }
+.shop-link{
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  text-align: center;
+  bottom: -25px;
+  @media screen and (max-width: @mobile){
+    position: relative;
+    padding-top: 20px;
+    bottom: 0;
+  }
+  a{
+    color: white;
+    @media screen and (max-width: @mobile){
+      color: @red;
+    }
+  }
+}
