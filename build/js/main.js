@@ -15172,6 +15172,8 @@ if (typeof jQuery === 'undefined') {
 /* Custom JavaScript files supervisor */
 /**************************************/
 
+var AN; //GLOBAL CONTROLLER FOR ANALYTICS EVENT PUSH
+
 $(window).load(function(){
   // $('#preloader').fadeOut(500);
   lazyLoad();
@@ -15296,6 +15298,8 @@ $(document).ready(function() {
       ]
     }
   ]);
+
+  AN = new analytics();
 
   $(window).trigger('scroll');
 });
@@ -15547,6 +15551,7 @@ function AjaxSubmit(options){
 
     if (!err){
       var data = $(this).serialize();
+      AN.pushForm($(this).serializeArray());
       $.ajax({
          type: 'POST',
          url: "send.php",
@@ -15646,4 +15651,134 @@ function lazyLoad(){
   }
   
   loadNext();
+}
+
+function analytics(){
+  var self = this;
+  var counters = {
+    'look1': 0,
+    'look2': 0,
+    'look3': 0
+  };
+
+  function controller(event){
+    ++counters[event];
+    switch(event){
+      case 'look1':
+        if(counters[event] <= 1) {
+          ga('send', 'event', 'main', 'click', 'classic');
+          yaCounter38382390.reachGoal('classicclick');
+        }
+        break;
+      case 'look2':
+        if(counters[event] <= 1) {
+          ga('send', 'event', 'main', 'click', 'red');
+          yaCounter38382390.reachGoal('redclick');
+        }
+        break;
+      case 'look3':
+        if(counters[event] <= 1) {
+          ga('send', 'event', 'main', 'click', 'italy');
+          yaCounter38382390.reachGoal('italyclick');
+        }
+        break;
+      case 'book_look1':
+        ga('send','event','main','form','classic');
+        yaCounter38382390.reachGoal('classicsend');
+        break;
+      case 'book_look2':
+        ga('send','event','main','form','red');
+        yaCounter38382390.reachGoal('redsend');
+        break;
+      case 'book_look3':
+        ga('send','event','main','form','italy');
+        yaCounter38382390.reachGoal('italysend');
+        break;
+      case 'book_prod_from_look1':
+        ga('send','event','main','form','classicpc');
+        yaCounter38382390.reachGoal('classicpcsend');
+        break;
+      case 'book_prod_from_look2':
+        ga('send','event','main','form','redpc');
+        yaCounter38382390.reachGoal('redpcsend');
+        break;
+      case 'book_prod_from_look3':
+        ga('send','event','main','form','italypc');
+        yaCounter38382390.reachGoal('italypcsend');
+        break;
+      case 'vk':
+        ga('send','event','social','click','vk');
+        yaCounter38382390.reachGoal('vkclick');
+        break;
+      case 'fb':
+        ga('send','event','social','click','fb');
+        yaCounter38382390.reachGoal('fbclick');
+        break;
+      case 'inst':
+        ga('send','event','social','click','inst');
+        yaCounter38382390.reachGoal('instclick');
+        break;
+      
+      default: throw new Error('Unexpected event in analitics');
+    }
+  }
+
+  function objectifyForm(formArray) {//serialize data function
+
+    returnArray = {};
+    for (var i = 0; i < formArray.length; i++){
+      returnArray[formArray[i]['name']] = formArray[i]['value'];
+    }
+    return returnArray;
+  }
+
+  this.push = function(event_name){
+    controller(event_name);
+  };
+
+  this.resetCounter = function(event_name){
+    counters[event_name] = 0;
+  };
+
+  this.pushForm = function(formData){
+    var data = objectifyForm(formData);
+    switch(data['look-name']){
+      case "Look: Уверенная классика":
+        if(data.hasOwnProperty('try')){
+          if(data['try'] == 'single'){
+            self.push('book_prod_from_look1');
+          } else{
+            self.push('book_look1');
+          }
+        } else{
+          self.push('book_look1');
+        }
+        break;
+      case "Look: Энергия красного":
+        if(data.hasOwnProperty('try')){
+          if(data['try'] == 'single'){
+            self.push('book_prod_from_look2');
+          } else{
+            self.push('book_look2');
+          }
+        } else{
+          self.push('book_look2');
+        }
+        break;
+      case "Look: Итальянский weekend":
+        if(data.hasOwnProperty('try')){
+          if(data['try'] == 'single'){
+            self.push('book_prod_from_look3');
+          } else{
+            self.push('book_look3');
+          }
+        } else{
+          self.push('book_look3');
+        }
+        break;
+      default: return 0;
+    }
+
+  };
+
 }

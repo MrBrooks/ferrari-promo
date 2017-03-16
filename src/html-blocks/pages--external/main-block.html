@@ -65,7 +65,7 @@
 </section>
 <section class="product-block playing">
   <div class="dynamin-grid">
-    <div class="item">
+    <div class="item" onclick="AN.push('look1')">
       <div class="book">
         <div>
           <div class="title">Уверенная классика</div>
@@ -157,7 +157,7 @@
           </div>
         </div>
       </div>
-      <div class="go-back">
+      <div class="go-back" onclick="AN.resetCounter('look1')">
         <span>Закрыть</span>
         <div class="svg-sprite--cross"></div>
       </div>
@@ -405,7 +405,7 @@
       </div>
 
     </div>
-    <div class="item">
+    <div class="item" onclick="AN.push('look2')">
       <div class="book">
         <div>
           <div class="title">Энергия красного</div>
@@ -481,7 +481,7 @@
           </div>
         </div>
       </div>
-      <div class="go-back">
+      <div class="go-back" onclick="AN.resetCounter('look2')">
         <span>Закрыть</span>
         <div class="svg-sprite--cross"></div>
       </div>
@@ -680,7 +680,7 @@
         </div>
       </div>
     </div>
-    <div class="item">
+    <div class="item" onclick="AN.push('look3')">
       <div class="book">
         <div>
           <div class="title">Итальянский weekend</div>
@@ -756,7 +756,7 @@
           </div>
         </div>
       </div>
-      <div class="go-back">
+      <div class="go-back" onclick="AN.resetCounter('look3')">
         <span>Закрыть</span>
         <div class="svg-sprite--cross"></div>
       </div>
@@ -967,13 +967,13 @@
   </div>
   <div class="contacts">
     <div class="socials">
-      <a href="https://vk.com/ferraristore_rus">
+      <a href="https://vk.com/ferraristore_rus" onclick="AN.push('vk')">
         <div class="svg-sprite--vk"></div>
       </a>
-      <a href="https://www.facebook.com/ferraristorerus/?fref=ts">
+      <a href="https://www.facebook.com/ferraristorerus/?fref=ts" onclick="AN.push('fb')">
         <div class="svg-sprite--fb"></div>
       </a>
-      <a href="https://www.instagram.com/ferrari.store.ru/">
+      <a href="https://www.instagram.com/ferrari.store.ru/" onclick="AN.push('inst')">
         <div class="svg-sprite--inst"></div>
       </a>
     </div>
