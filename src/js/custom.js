@@ -90,7 +90,7 @@ $(document).ready(function() {
 
   $("input[name='phone']").mask('8 (000) 000-00-00',{placeholder: "8 (___) _ _ _-_ _-_ _"});
 
-  var video_control = new VideoControl();
+  // var video_control = new VideoControl();
 
   var sliders = $(this).find('.slider');
   sliders.each(function(){
@@ -112,7 +112,7 @@ $(document).ready(function() {
       actions: [
         scroll_anim.updateView,
         start_anim.updateView,
-        video_control.update,
+        // video_control.update,
         // video_play.scrollControl,
         // econtenta_pixel.checkScrollConditions
       ]
