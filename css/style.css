@@ -4984,11 +4984,14 @@ label
 }
 .popup .product-info .form-block .form-title
 {
+    font-size: 20px;
     font-weight: 400;
 
     margin: 20px 0;
 
     text-transform: uppercase;
+
+    color: #f42e2e;
 }
 .popup .product-info .form-block .btn
 {
@@ -5002,7 +5005,7 @@ label
 }
 .popup .phone
 {
-    margin: 30px 0;
+    margin: 30px 0 20px;
 }
 .popup .content > div
 {
@@ -5204,6 +5207,10 @@ label
 .quote
 {
     font-size: 12px;
+
+    margin-top: 15px;
+
+    text-align: center;
 }
 .circle-btn
 {
@@ -5540,6 +5547,48 @@ input.phone.invalid
     {
         color: #f42e2e;
     }
+}
+.form-price > div
+{
+    display: inline-block;
+
+    vertical-align: bottom;
+}
+.form-price .price--old
+{
+    font-size: 18px;
+
+    position: relative;
+}
+.form-price .price--old:before
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 1px;
+    margin: auto;
+
+    content: '';
+
+    background-color: #f42e2e;
+}
+.form-price .price--new
+{
+    font-size: 24px;
+    font-weight: 700;
+
+    margin-left: 15px;
+
+    color: #f42e2e;
+}
+.active-time
+{
+    margin-top: 10px;
 }
 .playing .anim-border
 {

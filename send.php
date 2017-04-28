@@ -1,26 +1,14 @@
 <?php
 
-if ($_POST) { 
-  
-  if(isset($_POST["product-name"])){
-    $product_name = htmlspecialchars($_POST["product-name"]); //может быть не установлено, если заказали сразу
-  } else{
-    $product_name = "";
-  }
-
-  if(isset($_POST["try"])){
-    $radio = htmlspecialchars($_POST["try"]); //может быть не установлено, если заказали сразу
-  } else{
-    $radio = "";
-  }
+if ($_POST) {
 
   $phone = htmlspecialchars($_POST["phone"]);
   $look_name = htmlspecialchars($_POST["look-name"]);
-  
-  
+  $product_name = htmlspecialchars($_POST["product-name"]);
+  $radio = "single";
+
 
   $json = array();
-  
 
 
   function GenerateMailBody($radio, $look, $product, $phone){
