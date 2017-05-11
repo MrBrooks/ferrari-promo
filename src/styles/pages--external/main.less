@@ -48,6 +48,9 @@ label{
 .full-height{
   height: 100vh;
 }
+.red{
+  color: @red;
+}
 #preloader{
   position: fixed;
   width: 100%;
@@ -1102,13 +1105,14 @@ input.phone{
   }
 }
 .form-price{
+  margin: 24px 0;
   &>div{
     display: inline-block;
     vertical-align: bottom;
   }
   .price--old{
     position: relative;
-    font-size: 18px;
+    font-size: 24px;
     &:before{
       position: absolute;
       top: 0;
@@ -1124,7 +1128,7 @@ input.phone{
   }
   .price--new{
     margin-left: 15px;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 700;
     color: @red;
 

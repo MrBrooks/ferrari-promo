@@ -4066,6 +4066,10 @@ label
 {
     height: 100vh;
 }
+.red
+{
+    color: #f42e2e;
+}
 #preloader
 {
     position: fixed;
@@ -5548,6 +5552,10 @@ input.phone.invalid
         color: #f42e2e;
     }
 }
+.form-price
+{
+    margin: 24px 0;
+}
 .form-price > div
 {
     display: inline-block;
@@ -5556,7 +5564,7 @@ input.phone.invalid
 }
 .form-price .price--old
 {
-    font-size: 18px;
+    font-size: 24px;
 
     position: relative;
 }
@@ -5579,7 +5587,7 @@ input.phone.invalid
 }
 .form-price .price--new
 {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 700;
 
     margin-left: 15px;
